@@ -1,0 +1,21 @@
+
+version: '3'
+services:
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    ports:
+      - "4040:4040" 
+    volumes:
+      - .:/app 
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - server

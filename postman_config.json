@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "ce56e3bd-d45e-41a5-8191-03a576eb410b",
+		"name": "Newsletter Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28287586",
+		"_collection_link": "https://solar-equinox-686465.postman.co/workspace/ankurgajurel~7c163c6f-23b1-4c14-913c-a0b4106ac9ab/collection/28287586-ce56e3bd-d45e-41a5-8191-03a576eb410b?action=share&creator=28287586&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "check if service running",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost",
+					"host": [
+						"localhost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new subscriber",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"fullName\": \"John Doe\", \"email\": \"ankurgajurel02@gmail.com\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/newSubscriber",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"newSubscriber"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get full name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ankurgajurel02@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/getFullName",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"getFullName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete subsriber",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ankurgajurel02@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/deleteSubscriber",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"deleteSubscriber"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
