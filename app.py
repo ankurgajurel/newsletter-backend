@@ -115,7 +115,7 @@ def get_all_subscribers():
 def docs():
     return redirect('/static/swagger.json')
 
-SWAGGER_URL = '/docs'
+SWAGGER_URL = '/swagger'
 API_URL = '/static/swagger.json'
 swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,

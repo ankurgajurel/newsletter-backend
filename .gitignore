@@ -21,3 +21,5 @@ db.sqlite3
 # Ignore package dependencies
 # Add any other package manager files if needed
 pip-lock.txt
+.vercel/
+.vercel
