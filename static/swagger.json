@@ -1,0 +1,138 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Newsletter Subscription API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/newSubscriber": {
+      "post": {
+        "summary": "Add a new subscriber",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": ["fullName", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "New Subscriber has been added to the database"
+          },
+          "400": {
+            "description": "Missing fullName or email"
+          },
+          "409": {
+            "description": "A user with this email already exists"
+          }
+        }
+      }
+    },
+    "/getFullName": {
+      "post": {
+        "summary": "Get the full name of a subscriber",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The full name of the user with the email you provided"
+          },
+          "400": {
+            "description": "Missing email or The user has either been deleted or does not exist"
+          }
+        }
+      }
+    },
+    "/updateSubscriber": {
+      "put": {
+        "summary": "Update a subscriber",
+        "description": "Update the email and/or full name of an existing subscriber",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "newEmail",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "newFullName",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subscriber has been updated"
+          },
+          "400": {
+            "description": "Subscriber does not exist or missing email"
+          }
+        }
+      }
+    },
+    "/getAllSubscribers": {
+      "get": {
+        "summary": "Get all subscribers",
+        "description": "Retrieve a list of all subscribers",
+        "responses": {
+          "200": {
+            "description": "A list of all subscribers",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

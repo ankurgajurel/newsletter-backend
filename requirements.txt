@@ -2,3 +2,4 @@ flask
 flask_sqlalchemy
 psycopg2-binary
 python-dotenv
+flask_swagger_ui
